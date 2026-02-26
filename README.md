@@ -1,71 +1,53 @@
 # Proactive Anomaly Detection (OpenClaw Skill)
 
-A preventive autonomy skill for OpenClaw that scans integrated app/data stream summaries for unusual patterns (email spikes, budget overrun risk, failure bursts, latency regressions) and generates predefined alert/corrective playbook actions.
+**Build better OpenClaw bots, faster.**
 
-## What it does
+Detects unusual spikes, overruns, and failure bursts early and triggers preventive response playbooks.
 
-- Detects anomalies in operational streams
-- Classifies severity (`medium`, `high`)
-- Maps anomalies to predefined response actions
-- Produces machine-readable action output + human audit log
+## Why this skill is useful
 
-## Included files
+- Reduces manual operations and repetitive decision overhead
+- Improves consistency and reliability in production workflows
+- Gives you a reusable automation block you can compose with other skills
 
-- `SKILL.md` — skill behavior and operating guidance
-- `scripts/detect_anomalies.py` — anomaly scanner
-- `scripts/trigger_actions.py` — response/playbook engine
-- `references/sample-streams.json` — sample stream input
-- `references/default-playbook.json` — default action rules
-- `_meta.json` — metadata
+## What you can do with it
+
+- Run focused automation workflows around **Proactive Anomaly Detection**
+- Adapt behavior to your own process and constraints
+- Integrate outputs with your existing OpenClaw routines
 
 ## Quick Start
 
 ```bash
-python3 scripts/detect_anomalies.py \
-  --input references/sample-streams.json \
-  --out ./out/anomalies.json
+# Clone
+git clone https://github.com/mogus-prog/proactive-anomaly-detection-skill.git
+cd proactive-anomaly-detection-skill
 
-python3 scripts/trigger_actions.py \
-  --anomalies ./out/anomalies.json \
-  --playbook references/default-playbook.json \
-  --out ./out/actions.json \
-  --audit ./out/anomaly-audit.md
+# Read usage and run sample flow from SKILL.md
 ```
 
-## Detection model (default)
+> This repository is designed to be used as an OpenClaw skill package. Start with `SKILL.md` for trigger guidance and workflow steps.
 
-- Spike: `current >= baseline * multiplier`
-- Budget overrun risk: `projected > budget limit`
-- Failure burst: `failure_rate > threshold`
-- Latency regression: `p95 latency > threshold`
+## Ideal use cases
 
-## Action model
+- Personal AI operators who need dependable routines
+- Builders running multi-step automations
+- Teams who want reusable operational playbooks
 
-Default action types:
-- `notify`
-- `run_backup`
-- `throttle_nonessential`
-- `offload_candidate`
-- `escalate`
+## Pair it with other skills
 
-All actions are advisory by default and intended to be executed via approved operator workflows.
+This skill works best as part of a larger stack (monitoring + planning + execution + safety).
 
-## Safety
+## Commercial support / custom builds
 
-- No destructive actions by default
-- Full decision/audit output for traceability
-- Integrations can be enabled explicitly per environment
-
-## Commercial Support & Custom Builds
-
-Want this adapted to your workflow or stack?
+Want this adapted to your exact workflow and tech stack?
 
 - Custom implementation
 - Integration with your existing OpenClaw setup
 - Security hardening + approval-gated actions
 - Ongoing optimization and support
 
-Contact: **DirtyLeopard.com**
+**Contact:** https://dirtyleopard.com
 
 ## Service Packages
 
@@ -76,6 +58,10 @@ Contact: **DirtyLeopard.com**
 | Operator Suite | $3,000+ | 5–8 skills, orchestration, security/reliability tuning |
 
 For commercial licensing or retainers, open an issue in this repo or contact via DirtyLeopard.com.
+
+## Contributing
+
+PRs and issues are welcome. If you test this in production, share results and edge cases.
 
 ## License
 
