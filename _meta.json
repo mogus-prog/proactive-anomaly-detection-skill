@@ -1,0 +1,7 @@
+{
+  "name": "proactive-anomaly-detection",
+  "version": "0.1.0",
+  "summary": "Detect unusual operational patterns and trigger preventive action playbooks.",
+  "author": "Mogus",
+  "license": "MIT"
+}

@@ -1,0 +1,23 @@
+{
+  "rules": {
+    "spike": [
+      {"action": "notify", "target": "telegram", "escalate_on_high": true},
+      {"action": "run_backup", "target": "daily-state"}
+    ],
+    "budget_overrun_risk": [
+      {"action": "notify", "target": "telegram", "escalate_on_high": true},
+      {"action": "throttle_nonessential", "target": "x-posting"}
+    ],
+    "failure_burst": [
+      {"action": "notify", "target": "telegram", "escalate_on_high": true},
+      {"action": "throttle_nonessential", "target": "background-jobs"}
+    ],
+    "latency_regression": [
+      {"action": "notify", "target": "telegram", "escalate_on_high": true},
+      {"action": "offload_candidate", "target": "edge-node-pool"}
+    ],
+    "default": [
+      {"action": "notify", "target": "telegram"}
+    ]
+  }
+}

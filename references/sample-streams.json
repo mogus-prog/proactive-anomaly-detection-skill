@@ -1,0 +1,33 @@
+{
+  "config": {
+    "spike_multiplier": 2.0,
+    "failure_rate_threshold": 0.2,
+    "latency_threshold_ms": 60000
+  },
+  "streams": [
+    {
+      "name": "gmail_inbound_volume",
+      "type": "generic",
+      "baseline": 20,
+      "current": 55
+    },
+    {
+      "name": "x_api_monthly_spend",
+      "type": "budget",
+      "limit": 10,
+      "spent": 6.2,
+      "projected": 12.5
+    },
+    {
+      "name": "automation_task_failures",
+      "type": "task_failures",
+      "total": 40,
+      "failures": 11
+    },
+    {
+      "name": "lead_ops_pipeline_latency",
+      "type": "latency",
+      "p95_ms": 78000
+    }
+  ]
+}
